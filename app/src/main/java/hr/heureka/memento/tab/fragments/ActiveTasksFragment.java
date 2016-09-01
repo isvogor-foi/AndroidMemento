@@ -1,7 +1,9 @@
 package hr.heureka.memento.tab.fragments;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +12,7 @@ import android.view.ViewGroup;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import hr.heureka.memento.R;
 import hr.heureka.memento.adapters.ActiveTasksRecycleViewAdapter;
 import hr.heureka.memento.entities.DbTask;
@@ -43,6 +46,17 @@ public class ActiveTasksFragment extends Fragment {
 
         // postavljanje adaptera
         recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(MockDataLoader.getDemoData(),getContext()));
+    }
+
+    @OnClick(R.id.fab)
+    public void onFabClicked(View view){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+        View dialogView = getActivity().getLayoutInflater().inflate(R.layout.task_dialog, null);
+
+        dialog.setView(dialogView);
+        dialog.setTitle(getString(R.string.dialog_title));
+        dialog.show();
+
     }
 
 }
