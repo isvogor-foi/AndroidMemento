@@ -16,4 +16,6 @@
     <string name="cancel">Cancel</string>
     <string name="loading">Loading</string>
     <string name="loading_message">Fetching data from web service..</string>
+    <!-- konstante -->
+    <string name="image_ws">ZAMIJENITI WEB LOKACIJOM</string>
 </resources>

@@ -16,4 +16,6 @@
     <string name="cancel">Otkaži</string>
     <string name="loading">Učitavam</string>
     <string name="loading_message">Dohvaćam podatke sa web servisa..</string>
+    <!-- konstante -->
+    <string name="image_ws">ZAMIJENITI WEB LOKACIJOM</string>
 </resources>
