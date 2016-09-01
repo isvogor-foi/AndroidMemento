@@ -46,7 +46,7 @@ public class ActiveTasksFragment extends Fragment {
         recycleView.setLayoutManager(llm);
 
         // postavljanje adaptera
-        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(MockDataLoader.getDemoData(),getContext()));
+        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(DbTask.getAll(0), getContext()));
     }
 
     @OnClick(R.id.fab)

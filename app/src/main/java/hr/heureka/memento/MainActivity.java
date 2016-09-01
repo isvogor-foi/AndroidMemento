@@ -10,6 +10,8 @@ import com.activeandroid.ActiveAndroid;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hr.heureka.memento.adapters.MainPagerAdapter;
+import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.helpers.MockDataLoader;
 import hr.heureka.memento.tab.fragments.ActiveTasksFragment;
 import hr.heureka.memento.tab.fragments.CompleteTasksFragment;
 import hr.heureka.memento.tab.fragments.NewsFragment;
@@ -43,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         // postavi straničenje
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+
+        // učitaj demo podatke
+        if(DbTask.getAll(0).isEmpty()){
+            MockDataLoader.loadMockData();
+        }
 
     }
 

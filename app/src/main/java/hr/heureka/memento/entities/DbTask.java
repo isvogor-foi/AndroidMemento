@@ -3,6 +3,7 @@ package hr.heureka.memento.entities;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
 
 import java.util.Date;
 import java.util.List;
@@ -63,6 +64,10 @@ public class DbTask extends Model {
 
     public void setCompleted(int completed) {
         this.completed = completed;
+    }
+
+    public static List<DbTask> getAll(int completed){
+        return new Select().from(DbTask.class).where("completed = ?", completed).orderBy("date DESC").execute();
     }
 
 }

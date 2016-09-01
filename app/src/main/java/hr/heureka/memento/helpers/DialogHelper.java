@@ -54,8 +54,8 @@ public class DialogHelper {
         List<String> spinnerStringItems = new ArrayList<>();
 
         // dohvatiti trenutne "demo" kategorije
-        for(DbTask taskCategory : MockDataLoader.getDemoData()){
-            spinnerStringItems.add(taskCategory.getCategory().getName());
+        for(DbCategory category : DbCategory.getAll()){
+            spinnerStringItems.add(category.getName());
         }
 
         // napraviti adapter koji string-ove dodjeljuje elementima spinnera

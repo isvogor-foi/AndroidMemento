@@ -3,6 +3,7 @@ package hr.heureka.memento.entities;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
 
 import java.util.List;
 
@@ -31,5 +32,13 @@ public class DbCategory extends Model {
     public String getColor() { return color; }
 
     public void setColor(String color) { this.color = color; }
+
+    public static DbCategory getCategoryByName(String name){
+        return new Select().from(DbCategory.class).where("name = ?", name).executeSingle();
+    }
+
+    public static List<DbCategory> getAll(){
+        return new Select().from(DbCategory.class).execute();
+    }
 
 }
