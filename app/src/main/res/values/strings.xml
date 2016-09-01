@@ -1,3 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Memento</string>
+    <string name="tab_title_in_progress">Pending</string>
+    <string name="tab_title_complete">Complete</string>
+    <string name="tab_title_news">News</string>
+    <string name="dialog_title">Add new task</string>
+    <string name="dialog_title_long">Choose your action</string>
+    <string name="dialog_task_name">Task name</string>
+    <string name="dialog_date">Date</string>
+    <string name="dialog_time">Time</string>
+    <string name="dialog_category">Category</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="completed">Completed</string>
+    <string name="cancel">Cancel</string>
+    <string name="loading">Loading</string>
+    <string name="loading_message">Fetching data from web service..</string>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Memento</string>
+    <string name="tab_title_in_progress">U tijeku</string>
+    <string name="tab_title_complete">Završeno</string>
+    <string name="tab_title_news">Novosti</string>
+    <string name="dialog_title">Dodaj novi zadatak</string>
+    <string name="dialog_title_long">Odaberite radnju</string>
+    <string name="dialog_task_name">Naziv</string>
+    <string name="dialog_date">Datum</string>
+    <string name="dialog_time">Vrijeme</string>
+    <string name="dialog_category">Kategorija</string>
+    <string name="save">Spremi</string>
+    <string name="delete">Obriši</string>
+    <string name="completed">Završeno</string>
+    <string name="cancel">Otkaži</string>
+    <string name="loading">Učitavam</string>
+    <string name="loading_message">Dohvaćam podatke sa web servisa..</string>
+</resources>

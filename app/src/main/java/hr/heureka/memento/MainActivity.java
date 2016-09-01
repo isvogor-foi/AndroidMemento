@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(final ViewPager viewPager) {
         final MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager(), this);
-        adapter.addFragment(new ActiveTasksFragment(), "Aktivni zadaci");
-        adapter.addFragment(new CompleteTasksFragment(),"Završeni zadaci");
-        adapter.addFragment(new NewsFragment(), "Vijesti");
+        adapter.addFragment(new ActiveTasksFragment(), getString(R.string.tab_title_in_progress));
+        adapter.addFragment(new CompleteTasksFragment(), getString(R.string.tab_title_complete));
+        adapter.addFragment(new NewsFragment(), getString(R.string.tab_title_news));
         viewPager.setAdapter(adapter);
     }
 }
