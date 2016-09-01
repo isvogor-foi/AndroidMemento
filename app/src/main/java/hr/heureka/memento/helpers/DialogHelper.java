@@ -112,4 +112,12 @@ public class DialogHelper {
         }
     };
 
+    public void save(){
+        DbTask task = new DbTask();
+        task.setName(editTaskName.getText().toString());
+        task.setDueDate(selectedDate.getTime());
+        String category = categorySpinner.getItemAtPosition(categorySpinner.getSelectedItemPosition()).toString();
+        task.setCategory(DbCategory.getCategoryByName(category));
+        task.save();
+    }
 }

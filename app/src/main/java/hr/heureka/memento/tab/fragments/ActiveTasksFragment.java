@@ -59,6 +59,14 @@ public class ActiveTasksFragment extends Fragment {
         final DialogHelper dialogHelper = new DialogHelper(getContext(), dialogView);
 
         dialog.setTitle(getString(R.string.dialog_title));
+        dialog.setPositiveButton(getString(R.string.save), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialogHelper.save();
+                recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(DbTask.getAll(0), getContext()));
+
+            }
+        });
         dialog.show();
 
     }
