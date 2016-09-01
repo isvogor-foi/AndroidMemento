@@ -1,0 +1,1 @@
+# AndroidMemento - Git init
