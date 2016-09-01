@@ -7,6 +7,10 @@ import android.os.Bundle;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import hr.heureka.memento.adapters.MainPagerAdapter;
+import hr.heureka.memento.tab.fragments.ActiveTasksFragment;
+import hr.heureka.memento.tab.fragments.CompleteTasksFragment;
+import hr.heureka.memento.tab.fragments.NewsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,5 +50,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(final ViewPager viewPager) {
+        final MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager(), this);
+        adapter.addFragment(new ActiveTasksFragment(), "Aktivni zadaci");
+        adapter.addFragment(new CompleteTasksFragment(),"Završeni zadaci");
+        adapter.addFragment(new NewsFragment(), "Vijesti");
+        viewPager.setAdapter(adapter);
     }
 }
