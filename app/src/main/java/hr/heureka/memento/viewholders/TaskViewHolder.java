@@ -42,6 +42,9 @@ public class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnLo
         ButterKnife.bind(this, itemView);
         this.context = itemView.getContext();
 
+        // slušaj longClick događaj
+        itemView.setOnLongClickListener(this);
+
         this.adapter = adapter;
         this.mItems = mItems;
     }

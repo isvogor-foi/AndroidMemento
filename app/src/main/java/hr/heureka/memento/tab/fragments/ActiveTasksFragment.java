@@ -16,13 +16,14 @@ import butterknife.OnClick;
 import hr.heureka.memento.R;
 import hr.heureka.memento.adapters.ActiveTasksRecycleViewAdapter;
 import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.helpers.DataFragment;
 import hr.heureka.memento.helpers.DialogHelper;
 import hr.heureka.memento.helpers.MockDataLoader;
 
 /**
  * Created by ivan on 4.7.2016..
  */
-public class ActiveTasksFragment extends Fragment {
+public class ActiveTasksFragment extends Fragment implements DataFragment{
 
     @Bind(R.id.rv_active_tasks)
     RecyclerView recycleView;
@@ -71,6 +72,10 @@ public class ActiveTasksFragment extends Fragment {
 
     }
 
+    @Override
+    public void reloadData() {
+        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(DbTask.getAll(0), getContext()));
+    }
 }
 
 

@@ -13,12 +13,13 @@ import butterknife.ButterKnife;
 import hr.heureka.memento.R;
 import hr.heureka.memento.adapters.ActiveTasksRecycleViewAdapter;
 import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.helpers.DataFragment;
 
 
 /**
  * Created by ivan on 4.7.2016..
  */
-public class CompleteTasksFragment extends Fragment {
+public class CompleteTasksFragment extends Fragment implements DataFragment {
 
     @Bind(R.id.rv_completed_tasks)
     RecyclerView recycleView;
@@ -43,4 +44,9 @@ public class CompleteTasksFragment extends Fragment {
 
     }
 
+    @Override
+    public void reloadData() {
+        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(DbTask.getAll(1), getContext()));
+
+    }
 }

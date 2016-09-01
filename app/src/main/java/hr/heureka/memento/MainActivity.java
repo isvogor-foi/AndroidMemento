@@ -11,6 +11,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import hr.heureka.memento.adapters.MainPagerAdapter;
 import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.helpers.DataFragment;
 import hr.heureka.memento.helpers.MockDataLoader;
 import hr.heureka.memento.tab.fragments.ActiveTasksFragment;
 import hr.heureka.memento.tab.fragments.CompleteTasksFragment;
@@ -65,5 +66,22 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new CompleteTasksFragment(), getString(R.string.tab_title_complete));
         adapter.addFragment(new NewsFragment(), getString(R.string.tab_title_news));
         viewPager.setAdapter(adapter);
+
+        // osvježi nakon odabira
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+            @Override
+            public void onPageSelected(int position) {
+                if(adapter.getItem(position) instanceof DataFragment){
+                    DataFragment selectedFragment = (DataFragment) adapter.getItem(position);
+                    selectedFragment.reloadData();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {}
+        });
     }
 }
