@@ -1,17 +1,29 @@
 package hr.heureka.memento.entities;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by ivan on 5.7.2016..
  */
-public class DbTask  {
+@Table(name="task")
+public class DbTask extends Model {
 
+    @Column(name = "name")
     private String name;
+    @Column(name = "date")
     private Date dueDate;
+    @Column (name = "category")
     private DbCategory category;
+
+    @Column (name = "completed")
     private int completed;
+
+    public DbTask() {}
 
 
     public DbTask(String name, Date dueDate, DbCategory category) {

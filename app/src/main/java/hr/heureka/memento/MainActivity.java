@@ -5,6 +5,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.activeandroid.ActiveAndroid;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hr.heureka.memento.adapters.MainPagerAdapter;
@@ -30,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // inicijalizacija ActiveAndroid biblioteke - baze podataka
+        ActiveAndroid.initialize(this);
         // aktivacija ButterKnife biblioteke
         ButterKnife.bind(this);
         // dohvatiti viewPager (primjer: bez korištenja ButterKnife biblioteke)
