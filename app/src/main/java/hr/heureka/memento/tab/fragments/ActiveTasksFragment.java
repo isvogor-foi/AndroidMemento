@@ -16,6 +16,7 @@ import butterknife.OnClick;
 import hr.heureka.memento.R;
 import hr.heureka.memento.adapters.ActiveTasksRecycleViewAdapter;
 import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.helpers.DialogHelper;
 import hr.heureka.memento.helpers.MockDataLoader;
 
 /**
@@ -54,6 +55,9 @@ public class ActiveTasksFragment extends Fragment {
         View dialogView = getActivity().getLayoutInflater().inflate(R.layout.task_dialog, null);
 
         dialog.setView(dialogView);
+
+        final DialogHelper dialogHelper = new DialogHelper(getContext(), dialogView);
+
         dialog.setTitle(getString(R.string.dialog_title));
         dialog.show();
 
