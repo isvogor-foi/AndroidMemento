@@ -5,12 +5,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.activeandroid.ActiveAndroid;
+import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hr.heureka.memento.adapters.MainPagerAdapter;
-import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.database.Task;
 import hr.heureka.memento.helpers.DataFragment;
 import hr.heureka.memento.helpers.MockDataLoader;
 import hr.heureka.memento.tab.fragments.ActiveTasksFragment;
@@ -36,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // inicijalizacija ActiveAndroid biblioteke - baze podataka
-        ActiveAndroid.initialize(this);
+        FlowManager.init(new FlowConfig.Builder(this).build());
+
+
+        //ActiveAndroid.initialize(this);
         // aktivacija ButterKnife biblioteke
         ButterKnife.bind(this);
         // dohvatiti viewPager (primjer: bez korištenja ButterKnife biblioteke)
@@ -48,10 +52,9 @@ public class MainActivity extends AppCompatActivity {
         setupTabIcons();
 
         // učitaj demo podatke
-        if(DbTask.getAll(0).isEmpty()){
-            MockDataLoader.loadMockData();
+        if(Task.getAll(0).isEmpty()){
+            MockDataLoader.loadMockData2();
         }
-
     }
 
     private void setupTabIcons() {

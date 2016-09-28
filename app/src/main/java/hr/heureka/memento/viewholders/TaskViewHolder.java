@@ -14,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import hr.heureka.memento.R;
 import hr.heureka.memento.adapters.ActiveTasksRecycleViewAdapter;
-import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.database.Task;
 
 /**
  * Created by ivan on 1.9.2016..
@@ -33,10 +33,10 @@ public class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnLo
     public LinearLayout linearLayout;
 
     private Context context;
-    private List<DbTask> mItems;
+    private List<Task> mItems;
 
     // konstruktor prima parametar trenutnog pogleda, adapter i elemente liste koje će prikazati
-    public TaskViewHolder(final View itemView, ActiveTasksRecycleViewAdapter adapter, List<DbTask> mItems) {
+    public TaskViewHolder(final View itemView, ActiveTasksRecycleViewAdapter adapter, List<Task> mItems) {
         super(itemView);
 
         ButterKnife.bind(this, itemView);
@@ -68,7 +68,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnLo
         });
         dialog.setButton(AlertDialog.BUTTON_POSITIVE, context.getString(R.string.completed), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                DbTask selectedTask = mItems.get(getAdapterPosition());
+                Task selectedTask = mItems.get(getAdapterPosition());
 
                 // ako trenutni zadatak nije završen, postavi mu svojstvo završenost
                 if(selectedTask.getCompleted() == 0) {

@@ -15,10 +15,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import hr.heureka.memento.R;
 import hr.heureka.memento.adapters.ActiveTasksRecycleViewAdapter;
-import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.database.Task;
 import hr.heureka.memento.helpers.DataFragment;
 import hr.heureka.memento.helpers.DialogHelper;
-import hr.heureka.memento.helpers.MockDataLoader;
 
 /**
  * Created by ivan on 4.7.2016..
@@ -47,7 +46,7 @@ public class ActiveTasksFragment extends Fragment implements DataFragment{
         recycleView.setLayoutManager(llm);
 
         // postavljanje adaptera
-        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(DbTask.getAll(0), getContext()));
+        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(Task.getAll(0), getContext()));
     }
 
     @OnClick(R.id.fab)
@@ -64,7 +63,7 @@ public class ActiveTasksFragment extends Fragment implements DataFragment{
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialogHelper.save();
-                recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(DbTask.getAll(0), getContext()));
+                recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(Task.getAll(0), getContext()));
 
             }
         });
@@ -74,7 +73,7 @@ public class ActiveTasksFragment extends Fragment implements DataFragment{
 
     @Override
     public void reloadData() {
-        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(DbTask.getAll(0), getContext()));
+        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(Task.getAll(0), getContext()));
     }
 }
 

@@ -4,54 +4,48 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import hr.heureka.memento.entities.DbCategory;
-import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.database.Category;
+import hr.heureka.memento.database.Task;
 
 /**
  * Created by ivan on 1.9.2016..
  */
 public class MockDataLoader {
 
-    public static List<DbTask> getDemoData(){
-        List<DbTask> mItems = new ArrayList<>();
-        mItems.add(new DbTask("Tennis on Sunday", new Date(), new DbCategory("Sport", "#000080")));
-        mItems.add(new DbTask("Math", new Date(), new DbCategory("Homework", "#FF0000")));
-        mItems.add(new DbTask("Drone flight", new Date(), new DbCategory("Hobby", "#CCCCCC")));
-        return mItems;
-    }
 
-    public static void loadMockData(){
+
+    public static void loadMockData2(){
 
         // demo kategorije
-        List<DbCategory> mCategories = new ArrayList<>();
-        mCategories.add(new DbCategory("Sport", "#000080"));
-        mCategories.add(new DbCategory("Books", "#00AA00"));
-        mCategories.add(new DbCategory("Homework", "#FF0000"));
-        mCategories.add(new DbCategory("Hobby", "#CCCCCC"));
+        List<Category> mCategories = new ArrayList<>();
+        mCategories.add(new Category("Sport", "#000080"));
+        mCategories.add(new Category("Books", "#00AA00"));
+        mCategories.add(new Category("Homework", "#FF0000"));
+        mCategories.add(new Category("Hobby", "#CCCCCC"));
 
         // pohrana kategorija u bazu podataka
-        for (DbCategory category : mCategories){
+        for (Category category : mCategories){
             category.save();
         }
 
         // ne završeni demo zadaci
-        List<DbTask> mItems = new ArrayList<>();
-        mItems.add(new DbTask("Football on Sunday", new Date(), DbCategory.getCategoryByName("Sport")));
-        mItems.add(new DbTask("Concert", new Date(), DbCategory.getCategoryByName("Hobby")));
-        mItems.add(new DbTask("Math homework", new Date(), DbCategory.getCategoryByName("Homework")));
+        List<Task> mItems = new ArrayList<>();
+        mItems.add(new Task("Football on Sunday", new Date(), Category.getCategoryByName("Sport")));
+        mItems.add(new Task("Concert", new Date(), Category.getCategoryByName("Hobby")));
+        mItems.add(new Task("Math homework", new Date(), Category.getCategoryByName("Homework")));
 
         // pohrana ne završenih zadataka
-        for (DbTask task : mItems){
+        for (Task task : mItems){
             task.save();
         }
         mItems.clear();
 
         // završeni demo zadaci
-        mItems.add(new DbTask("Cycling cup", new Date(), DbCategory.getCategoryByName("Sport")));
-        mItems.add(new DbTask("FPV AUV Flight", new Date(), DbCategory.getCategoryByName("Hobby")));
+        mItems.add(new Task("Cycling cup", new Date(), Category.getCategoryByName("Sport")));
+        mItems.add(new Task("FPV AUV Flight", new Date(), Category.getCategoryByName("Hobby")));
 
         // pohrana završeni zadataka
-        for (DbTask task : mItems){
+        for (Task task : mItems){
             task.setCompleted(1);
             task.save();
         }

@@ -12,7 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import hr.heureka.memento.R;
 import hr.heureka.memento.adapters.ActiveTasksRecycleViewAdapter;
-import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.database.Task;
 import hr.heureka.memento.helpers.DataFragment;
 
 
@@ -40,13 +40,13 @@ public class CompleteTasksFragment extends Fragment implements DataFragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recycleView.setLayoutManager(llm);
 
-        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(DbTask.getAll(1), getContext()));
+        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(Task.getAll(1), getContext()));
 
     }
 
     @Override
     public void reloadData() {
-        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(DbTask.getAll(1), getContext()));
+        recycleView.setAdapter(new ActiveTasksRecycleViewAdapter(Task.getAll(1), getContext()));
 
     }
 }

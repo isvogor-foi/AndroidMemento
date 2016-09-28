@@ -19,8 +19,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnFocusChange;
 import hr.heureka.memento.R;
-import hr.heureka.memento.entities.DbCategory;
-import hr.heureka.memento.entities.DbTask;
+import hr.heureka.memento.database.Category;
+import hr.heureka.memento.database.Task;
 
 /**
  * Created by ivan on 5.7.2016..
@@ -54,7 +54,7 @@ public class DialogHelper {
         List<String> spinnerStringItems = new ArrayList<>();
 
         // dohvatiti trenutne "demo" kategorije
-        for(DbCategory category : DbCategory.getAll()){
+        for(Category category : Category.getAll()){
             spinnerStringItems.add(category.getName());
         }
 
@@ -113,11 +113,11 @@ public class DialogHelper {
     };
 
     public void save(){
-        DbTask task = new DbTask();
+        Task task = new Task();
         task.setName(editTaskName.getText().toString());
         task.setDueDate(selectedDate.getTime());
         String category = categorySpinner.getItemAtPosition(categorySpinner.getSelectedItemPosition()).toString();
-        task.setCategory(DbCategory.getCategoryByName(category));
+        task.setCategory(Category.getCategoryByName(category));
         task.save();
     }
 }
